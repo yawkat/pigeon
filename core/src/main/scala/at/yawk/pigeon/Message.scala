@@ -8,7 +8,7 @@ import io.netty.buffer.{ByteBuf, Unpooled}
 class Message private(val message: ByteBuf) extends AnyVal
 
 object Message {
-  def create(message: ByteBuf): Message = {
+  def apply(message: ByteBuf): Message = {
     new Message(Unpooled.unmodifiableBuffer(message))
   }
 }

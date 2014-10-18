@@ -16,10 +16,10 @@ object MessageId {
   def random(length: Int = DefaultLength): MessageId = {
     val bytes = new Array[Byte](length)
     RNG.nextBytes(bytes)
-    create(Unpooled.wrappedBuffer(bytes))
+    MessageId(Unpooled.wrappedBuffer(bytes))
   }
 
-  def create(id: ByteBuf): MessageId = {
+  def apply(id: ByteBuf): MessageId = {
     new MessageId(Unpooled.unmodifiableBuffer(id))
   }
 }

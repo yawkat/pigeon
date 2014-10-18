@@ -58,6 +58,6 @@ private[tcp] class DatagramCodec extends ByteToMessageCodec[Datagram] {
     val address = readSizedBuffer(in)
     val body = readSizedBuffer(in)
 
-    out.add(new Datagram(MessageId.create(id), Address.create(address), Message.create(body)))
+    out.add(new Datagram(MessageId(id), Address(address), Message(body)))
   }
 }
